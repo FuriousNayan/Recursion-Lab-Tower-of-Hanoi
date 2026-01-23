@@ -149,29 +149,43 @@ public class TowerOfHanoiExtraCredit {
         int paddingSize = 10;
         int largestPegADisk = (1 + 2 * (pegA.get(0)));
         int totalSpacesToFill = (1 + 2 * (pegA.get(0)) + paddingSize);
-        System.out.println(largestPegADisk);
-        System.out.println(totalSpacesToFill);
-
+        
         String space = " ";
         String equalSign = "=";
         int spaceCounter = n;
         int equalsCounter = 3;
+ 
+        // System.out.print("Peg B:");
+        // System.out.println("Peg C:");
 
-        // First Line of pegA Done
+
+        System.out.print("Peg A:");
+        System.out.print(space.repeat(largestPegADisk + 1));
+        System.out.print("Peg B:");
+        System.out.print(space.repeat(largestPegADisk + 1));
+        System.out.print("Peg C:");
+        System.out.println(space.repeat(largestPegADisk + 1));
+
+        // First Line of All Pegs Done
         System.out.print(space.repeat(spaceCounter));
-        System.out.print("|");
+        System.out.print("|            |             |");
         System.out.println(space.repeat(spaceCounter));
 
-        
-        for(int i = 0; i < n; i++){
-            System.out.print(space.repeat(spaceCounter));
+        // Starting for all pegs done
+        for(int i = 1; i <= n; i++){
+            System.out.print(space.repeat(spaceCounter - i)); 
             System.out.print(equalSign.repeat(equalsCounter));
+            System.out.print(space.repeat(11 - i)); 
+            System.out.print(" |             |");
             System.out.println();
             equalsCounter += 2;
         }
-
+        
 
     }
+
+    // Starting Peg C
+    
     
     /**
      * PART 3: Add move counting and validation
