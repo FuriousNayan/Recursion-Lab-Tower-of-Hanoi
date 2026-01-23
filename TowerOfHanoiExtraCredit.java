@@ -92,7 +92,7 @@ public class TowerOfHanoiExtraCredit {
         sourcePeg.remove(sourcePeg.size() - 1);
         destPeg.add(diskToMove);
         System.out.println("Moved disk " + diskToMove + " from " + sourcePeg + " to " + destPeg);
-        displayTowers();
+        displayTowers(n);
         moveSingularDisk(n);
         
     }
@@ -132,7 +132,7 @@ public class TowerOfHanoiExtraCredit {
 
     }
 
-    public static void displayTowers() {
+    public static void displayTowers(int n) {
         // // TODO: Implement tower visualization
         // // System.out.println("--- Tower State ---");
         // System.out.println("----------------------------------------------------");
@@ -145,7 +145,32 @@ public class TowerOfHanoiExtraCredit {
         System.out.println("A: " + pegA);
         System.out.println("B: " + pegB);
         System.out.println("C: " + pegC);
+
+        int paddingSize = 10;
+        int largestPegADisk = (1 + 2 * (pegA.get(0)));
+        int totalSpacesToFill = (1 + 2 * (pegA.get(0)) + paddingSize);
+        System.out.println(largestPegADisk);
+        System.out.println(totalSpacesToFill);
+
+        String space = " ";
+        String equalSign = "=";
+        int spaceCounter = n;
+        int equalsCounter = 3;
+
+        // First Line of pegA Done
+        System.out.print(space.repeat(spaceCounter));
+        System.out.print("|");
+        System.out.println(space.repeat(spaceCounter));
+
         
+        for(int i = 0; i < n; i++){
+            System.out.print(space.repeat(spaceCounter));
+            System.out.print(equalSign.repeat(equalsCounter));
+            System.out.println();
+            equalsCounter += 2;
+        }
+
+
     }
     
     /**
@@ -176,7 +201,7 @@ public class TowerOfHanoiExtraCredit {
         System.out.println("Tower of Hanoi - " + n + " disks");
         initializetowers(n);
 
-        displayTowers();
+        displayTowers(n);
         moveSingularDisk(n);
         printStatistics(n);
         
