@@ -133,8 +133,15 @@ public class TowerOfHanoiExtraCredit {
     }
 
     public static void displayTowers() {
-        // TODO: Implement tower visualization
-        System.out.println("--- Tower State ---");
+        // // TODO: Implement tower visualization
+        // // System.out.println("--- Tower State ---");
+        // System.out.println("----------------------------------------------------");
+        // System.out.printf("Peg A:     Peg B:     Peg C:      " + "\n");
+        // System.out.println("----------------------------------------------------");
+        // for(int i = 0; i <= pegA.size(); i++){
+        //     System.out.printf("  |          |          |%n");
+        // }
+        // System.out.println();
         System.out.println("A: " + pegA);
         System.out.println("B: " + pegB);
         System.out.println("C: " + pegC);
