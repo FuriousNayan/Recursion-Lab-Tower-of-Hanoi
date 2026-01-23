@@ -146,40 +146,40 @@ public class TowerOfHanoiExtraCredit {
         System.out.println("B: " + pegB);
         System.out.println("C: " + pegC);
 
-        int paddingSize = 10;
-        int largestPegADisk = (1 + 2 * (pegA.get(0)));
-        int totalSpacesToFill = (1 + 2 * (pegA.get(0)) + paddingSize);
+        // int paddingSize = 10;
+        // int largestPegADisk = (1 + 2 * (pegA.get(0)));
+        // int totalSpacesToFill = (1 + 2 * (pegA.get(0)) + paddingSize);
         
-        String space = " ";
-        String equalSign = "=";
-        int spaceCounter = n;
-        int equalsCounter = 3;
+        // String space = " ";
+        // String equalSign = "=";
+        // int spaceCounter = n;
+        // int equalsCounter = 3;
  
+        // // System.out.print("Peg B:");
+        // // System.out.println("Peg C:");
+
+
+        // System.out.print("Peg A:");
+        // System.out.print(space.repeat(largestPegADisk + 1));
         // System.out.print("Peg B:");
-        // System.out.println("Peg C:");
+        // System.out.print(space.repeat(largestPegADisk + 1));
+        // System.out.print("Peg C:");
+        // System.out.println(space.repeat(largestPegADisk + 1));
 
+        // // First Line of All Pegs Done
+        // System.out.print(space.repeat(spaceCounter));
+        // System.out.print("|            |             |");
+        // System.out.println(space.repeat(spaceCounter));
 
-        System.out.print("Peg A:");
-        System.out.print(space.repeat(largestPegADisk + 1));
-        System.out.print("Peg B:");
-        System.out.print(space.repeat(largestPegADisk + 1));
-        System.out.print("Peg C:");
-        System.out.println(space.repeat(largestPegADisk + 1));
-
-        // First Line of All Pegs Done
-        System.out.print(space.repeat(spaceCounter));
-        System.out.print("|            |             |");
-        System.out.println(space.repeat(spaceCounter));
-
-        // Starting for all pegs done
-        for(int i = 1; i <= n; i++){
-            System.out.print(space.repeat(spaceCounter - i)); 
-            System.out.print(equalSign.repeat(equalsCounter));
-            System.out.print(space.repeat(11 - i)); 
-            System.out.print(" |             |");
-            System.out.println();
-            equalsCounter += 2;
-        }
+        // // Starting for all pegs done
+        // for(int i = 1; i <= n; i++){
+        //     System.out.print(space.repeat(spaceCounter - i)); 
+        //     System.out.print(equalSign.repeat(equalsCounter));
+        //     System.out.print(space.repeat(11 - i)); 
+        //     System.out.print(" |             |");
+        //     System.out.println();
+        //     equalsCounter += 2;
+        // }
         
 
     }
