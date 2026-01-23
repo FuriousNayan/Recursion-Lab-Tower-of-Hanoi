@@ -22,9 +22,10 @@ import java.util.Arrays;
  * @author Nayan Patel
  */
 public class TowerOfHanoi {
-    ArrayList<Integer> pegA = new ArrayList<>(Arrays.asList(3, 2, 1)); 
-    ArrayList<Integer> pegB = new ArrayList<>();
-    ArrayList<Integer> pegC = new ArrayList<>();
+    public static ArrayList<Integer> pegA;
+    public static ArrayList<Integer> pegB;
+    public static ArrayList<Integer> pegC;
+    
     
     // Part 3: Move counter (you'll add this)
     private static int moveCount = 0;
@@ -46,26 +47,45 @@ public class TowerOfHanoi {
      * @param auxiliary the auxiliary peg (e.g., 'B')
      */
     public static void moveDisks(int n, char source, char destination, char auxiliary) {
-        // TODO: Implement base case
-        
         if(n == 1){
-            System.out.println("Move disk " + n + " from " + source + " to " + destination);
-            moveCount += 1;
+            moveSingularDisk(source, destination);
             return;
         }
         
-        // TODO: Implement recursive case (3 steps)
         moveDisks(n - 1, source, auxiliary,  destination);
-        System.out.println("Move disk " + n + " from " + source + " to " + destination);
-        moveCount += 1;
 
+        moveSingularDisk(source, destination);
+        
         moveDisks(n - 1, auxiliary, destination, source);
-    }
 
+    }
+    public static void moveSingularDisk(char source, char destination){
+        moveCount++;
+
+        ArrayList<Integer> sourcePeg = getPeg(source);
+        ArrayList<Integer> destPeg = getPeg(destination);
+        
+        if(sourcePeg.isEmpty()) {
+            return;
+        }
+
+        int disk = sourcePeg.remove(sourcePeg.size() - 1);
+        destPeg.add(disk);
+
+        System.out.println("Move disk " + disk + " from " + source + " to " + destination);
+        displayTowers();
+
+    }
+    public static ArrayList<Integer> getPeg(char pegName) {
+        if (pegName == 'A') return pegA;
+        if (pegName == 'B') return pegB;
+        if (pegName == 'C') return pegC;
+        return null;
+    }
 
 // update towers
 // getpeg
-// initializetoweres
+// initializetowers
 
     /**
      * PART 2: Add visualization
@@ -84,14 +104,23 @@ public class TowerOfHanoi {
      */
 
 
-    
+    public static void initializetowers(int n){
+        pegA = new ArrayList<>(Arrays.asList()); 
+        pegB = new ArrayList<>();
+        pegC = new ArrayList<>();
+        for(int i = n; i >= 1; i--){
+            pegA.add(i);
+        }
+
+    }
+
 
     public static void displayTowers() {
-        
         // TODO: Implement tower visualization
         System.out.println("--- Tower State ---");
-
-
+        System.out.println("A: " + pegA);
+        System.out.println("B: " + pegB);
+        System.out.println("C: " + pegC);
         
     }
     
@@ -120,7 +149,9 @@ public class TowerOfHanoi {
     
     public static void main(String[] args) {
         int n = 3; // Start with 3 disks
-        
+        initializetowers(n);
+
+        System.out.println();
         System.out.println("Tower of Hanoi - " + n + " disks");
         System.out.println("Moving disks from A to C using B\n");
         
@@ -135,6 +166,7 @@ public class TowerOfHanoi {
         
         // Test with different numbers of disks
         System.out.println("\n\n=== Try with 4 disks ===");
+        initializetowers(4);
         moveCount = 0;
         moveDisks(4, 'A', 'C', 'B');
         printStatistics(4);
