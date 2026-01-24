@@ -22,6 +22,7 @@ import java.util.Arrays;
  * @author Nayan Patel
  */
 public class TowerOfHanoi {
+    // Implemented array lists in global scope in order to access in other methods
     public static ArrayList<Integer> pegA;
     public static ArrayList<Integer> pegB;
     public static ArrayList<Integer> pegC;
@@ -47,11 +48,13 @@ public class TowerOfHanoi {
      * @param auxiliary the auxiliary peg (e.g., 'B')
      */
     public static void moveDisks(int n, char source, char destination, char auxiliary) {
+        // Base case for recursive function
         if(n == 1){
             moveSingularDisk(source, destination);
             return;
         }
         
+        // Recursive functions (3 needed)
         moveDisks(n - 1, source, auxiliary,  destination);
 
         moveSingularDisk(source, destination);
@@ -60,8 +63,10 @@ public class TowerOfHanoi {
 
     }
     public static void moveSingularDisk(char source, char destination){
+        // Adding move count everytime I move a singular disk
         moveCount++;
 
+        //Using the getPeg method to access which peg I want using the source and destination
         ArrayList<Integer> sourcePeg = getPeg(source);
         ArrayList<Integer> destPeg = getPeg(destination);
         
@@ -69,23 +74,24 @@ public class TowerOfHanoi {
             return;
         }
 
+        // Getting the last disk on the source peg to move around
         int disk = sourcePeg.remove(sourcePeg.size() - 1);
         destPeg.add(disk);
 
+        // Displaying which disk moves where
         System.out.println("Move disk " + disk + " from " + source + " to " + destination);
         displayTowers();
 
     }
+
+    // Implemented getPeg to return the peg I want using A, B or C
     public static ArrayList<Integer> getPeg(char pegName) {
-        if (pegName == 'A') return pegA;
-        if (pegName == 'B') return pegB;
-        if (pegName == 'C') return pegC;
+        if (pegName == 'A' || pegName == 'a') return pegA;
+        if (pegName == 'B' || pegName == 'b') return pegB;
+        if (pegName == 'C' || pegName == 'c') return pegC;
         return null;
     }
 
-// update towers
-// getpeg
-// initializetowers
 
     /**
      * PART 2: Add visualization
@@ -104,6 +110,7 @@ public class TowerOfHanoi {
      */
 
 
+    // Creating the visualization towers using a decrementing for-loop which adds to the arrayList.
     public static void initializetowers(int n){
         pegA = new ArrayList<>(Arrays.asList()); 
         pegB = new ArrayList<>();
@@ -114,7 +121,7 @@ public class TowerOfHanoi {
 
     }
 
-
+    // Implemented displayTowers to display towers using simple formatting
     public static void displayTowers() {
         // TODO: Implement tower visualization
         System.out.println("--- Tower State ---");
@@ -130,7 +137,7 @@ public class TowerOfHanoi {
      * Enhance your solution to:
      * 1. Count total moves
      * 2. Verify the solution uses the minimum number of moves (2^n - 1)
-     * 3. Optional: Add validation to ensure no illegal moves
+     * 3. Optional: Add validation to ensure no illegal moves (Done on extra credit file)
      */
     public static void printStatistics(int n) {
         // TODO: Print statistics

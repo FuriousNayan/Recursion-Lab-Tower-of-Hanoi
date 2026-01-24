@@ -84,6 +84,7 @@ public class TowerOfHanoiExtraCredit {
         if (diskToMove > topDestDisk) {
             System.out.println("Please put on a valid peg");
             moveSingularDisk(n);
+            moveCount--;
             return;
         }
         
@@ -133,6 +134,9 @@ public class TowerOfHanoiExtraCredit {
     }
 
     public static void displayTowers(int n) {
+        System.out.println("A: " + pegA);
+        System.out.println("B: " + pegB);
+        System.out.println("C: " + pegC);
         // // TODO: Implement tower visualization
         // // System.out.println("--- Tower State ---");
         // System.out.println("----------------------------------------------------");
@@ -142,9 +146,7 @@ public class TowerOfHanoiExtraCredit {
         //     System.out.printf("  |          |          |%n");
         // }
         // System.out.println();
-        System.out.println("A: " + pegA);
-        System.out.println("B: " + pegB);
-        System.out.println("C: " + pegC);
+        
 
         // int paddingSize = 10;
         // int largestPegADisk = (1 + 2 * (pegA.get(0)));
@@ -211,7 +213,7 @@ public class TowerOfHanoiExtraCredit {
     }
     
     public static void main(String[] args) {
-        int n = getIntInput("Welcome to Tower of Hanoi! Please input how many pegs you would like to play with: ");
+        int n = getIntInput("Welcome to Tower of Hanoi! Please input how many disks you would like to play with: ");
         System.out.println("Tower of Hanoi - " + n + " disks");
         initializetowers(n);
 
